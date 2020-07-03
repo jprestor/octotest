@@ -1,3 +1,4 @@
-import { Service } from './service';
+import { DataService } from './data-service';
+import { DataServiceContext, DataServiceProvider } from './context';
 
-export { Service };
+export { DataService, DataServiceContext, DataServiceProvider };

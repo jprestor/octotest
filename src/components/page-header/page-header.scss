@@ -1,0 +1,8 @@
+.nav-link {
+  cursor: pointer;
+  color: $color3 !important;
+
+  &:hover {
+    color: $color4 !important;
+  }
+}

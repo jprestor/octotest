@@ -1,21 +1,21 @@
 // const path = require('path');
 // const CopyPlugin = require('copy-webpack-plugin');
-const BundleAnalyzerPlugin = require("webpack-bundle-analyzer")
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer')
   .BundleAnalyzerPlugin;
-const HtmlWebpackPlugin = require("html-webpack-plugin");
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = (env = {}) => {
-  const { mode = "development" } = env;
+  const { mode = 'development' } = env;
 
-  const isProd = mode === "production";
-  const isDev = mode === "development";
+  const isProd = mode === 'production';
+  const isDev = mode === 'development';
 
   const getStyleLoaders = () => {
     return [
-      isProd ? MiniCssExtractPlugin.loader : "style-loader",
+      isProd ? MiniCssExtractPlugin.loader : 'style-loader',
       {
-        loader: "css-loader",
+        loader: 'css-loader',
         options: {
           sourceMap: true,
         },
@@ -26,8 +26,8 @@ module.exports = (env = {}) => {
   const getPlugins = () => {
     const plugins = [
       new HtmlWebpackPlugin({
-        title: "ReactApp",
-        template: "public/index.html",
+        title: 'ReactApp',
+        template: 'public/index.html',
       }),
     ];
 
@@ -35,7 +35,7 @@ module.exports = (env = {}) => {
       plugins.push(
         // new BundleAnalyzerPlugin(),
         new MiniCssExtractPlugin({
-          filename: "main-[hash:8].css",
+          filename: 'main-[hash:8].css',
         })
       );
     }
@@ -44,17 +44,17 @@ module.exports = (env = {}) => {
   };
 
   return {
-    mode: isProd ? "production" : isDev && "development",
+    mode: isProd ? 'production' : isDev && 'development',
     output: {
-      filename: isProd ? "main-[hash:8].js" : undefined,
+      filename: isProd ? 'main-[hash:8].js' : undefined,
     },
-    resolve: { extensions: [".js", ".ts", ".tsx"] },
+    resolve: { extensions: ['.js', '.ts', '.tsx'] },
 
     devServer: {
       open: true, // автоматически открывает браузер
     },
 
-    devtool: isDev ? "eval-cheap-source-map" : undefined,
+    devtool: isDev ? 'eval-cheap-source-map' : undefined,
 
     plugins: getPlugins(),
 
@@ -64,7 +64,7 @@ module.exports = (env = {}) => {
         {
           test: /\.(js|ts|tsx)$/,
           exclude: /node_modules/,
-          loader: "babel-loader",
+          loader: 'babel-loader',
         },
 
         // Loading SASS
@@ -73,10 +73,17 @@ module.exports = (env = {}) => {
           use: [
             ...getStyleLoaders(),
             {
-              loader: "sass-loader",
+              loader: 'sass-loader',
               options: {
                 // To enable CSS source maps, you'll need to pass the sourceMap option to the sass-loader and the css-loader
                 sourceMap: true,
+              },
+            },
+            {
+              loader: 'sass-resources-loader',
+              options: {
+                // Provide path to the file with resources
+                resources: './src/assets/styles/style.scss',
               },
             },
           ],
@@ -93,10 +100,10 @@ module.exports = (env = {}) => {
           test: /\.(png|jpg|jpeg|gif)$/,
           use: [
             {
-              loader: "file-loader",
+              loader: 'file-loader',
               options: {
-                outputPath: "assets/images",
-                name: "[name]-[sha1:hash:7].[ext]",
+                outputPath: 'assets/images',
+                name: '[name]-[sha1:hash:7].[ext]',
               },
             },
           ],
@@ -107,10 +114,10 @@ module.exports = (env = {}) => {
           test: /\.(ttf|otf|eot|woff|woff2)$/,
           use: [
             {
-              loader: "file-loader",
+              loader: 'file-loader',
               options: {
-                outputPath: "assets/fonts",
-                name: "[name].[ext]",
+                outputPath: 'assets/fonts',
+                name: '[name].[ext]',
               },
             },
           ],

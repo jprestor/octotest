@@ -1,0 +1,14 @@
+.title {
+  font-weight: bold;
+  font-size: 40px;
+  line-height: 120%;
+
+  &--main {
+    font-weight: 800;
+    font-size: 54px;
+  }
+
+  &--bigger {
+    font-size: 48px;
+  }
+}

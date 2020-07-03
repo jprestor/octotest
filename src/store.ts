@@ -1,14 +1,11 @@
 import { createStore, applyMiddleware } from 'redux';
 import thunkMiddleware from 'redux-thunk';
 
-import reducer from './reducers';
+import { reducer } from './reducers';
 
 import { Dispatch, AnyAction } from 'redux';
 
-// Примеры Middleware
-const stringMiddleware = (/*{ dispatch, getState }*/) => (next: Dispatch) => (
-  action: AnyAction
-) => {
+const stringMiddleware = () => (next: Dispatch) => (action: AnyAction) => {
   if (typeof action === 'string') {
     return next({ type: action });
   }
@@ -18,7 +15,7 @@ const stringMiddleware = (/*{ dispatch, getState }*/) => (next: Dispatch) => (
 
 const store = createStore(
   reducer,
-  applyMiddleware(thunkMiddleware, stringMiddlewar)
+  applyMiddleware(thunkMiddleware, stringMiddleware)
 );
 
 export default store;
