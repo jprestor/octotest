@@ -1,3 +1,3 @@
-import { Form } from './form';
+import { SignupForm } from './form';
 
-export { Form };
+export { SignupForm as Form };

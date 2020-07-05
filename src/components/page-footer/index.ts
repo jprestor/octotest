@@ -1,3 +1,3 @@
-import PageFooter from './page-footer';
+import { PageFooter } from './page-footer';
 
-export default PageFooter;
+export { PageFooter };

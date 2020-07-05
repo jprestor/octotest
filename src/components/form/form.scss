@@ -1,0 +1,16 @@
+label {
+  margin: 15px 0 0;
+}
+
+input,
+textarea {
+  display: block;
+  + div {
+    font-style: italic;
+    color: $color7;
+  }
+}
+
+button[type='submit'] {
+  margin-top: 20px;
+}

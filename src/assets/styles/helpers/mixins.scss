@@ -1,0 +1,30 @@
+/* responsive */
+@mixin large {
+  @media (max-width: 1480px) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (max-width: 1240px) {
+    @content;
+  }
+}
+
+@mixin mob {
+  @media (max-width: 767px) {
+    @content;
+  }
+}
+
+@mixin overFhd {
+  @media (min-width: 1921px) {
+    @content;
+  }
+}
+
+@mixin media($width) {
+  @media (max-width: $width) {
+    @content;
+  }
+}

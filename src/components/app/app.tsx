@@ -5,10 +5,9 @@ import { DataServiceContext } from '../../services';
 import { fetchData } from '../../actions';
 
 import { PageHeader } from '../page-header';
-import { CopyField } from '../copy-field';
-import { FirstGallery, SecondGallery } from '../gallery';
-import { TextBlock1 } from '../text-block1';
-import { Form } from '../form';
+import { PageFooter } from '../page-footer';
+import { IntroSection, FirstStatic, SecondStatic } from '../sections';
+
 import { ErrorIndicator } from '../error-indicator';
 import { Spinner } from '../spinner';
 
@@ -20,12 +19,14 @@ const App: React.FC = () => {
   return (
     <Fragment>
       <PageHeader />
-      <h1>NewApp</h1>
-      <CopyField />
-      <FirstGallery />
-      <SecondGallery />
-      {/* <TextBlock1 /> */}
-      <Form />
+
+      <div className="container">
+        <IntroSection />
+        <FirstStatic />
+        <SecondStatic />
+      </div>
+
+      <PageFooter />
     </Fragment>
   );
 };

@@ -14,4 +14,4 @@ const PageFooter: React.FC = () => {
   );
 };
 
-export default PageFooter;
+export { PageFooter };

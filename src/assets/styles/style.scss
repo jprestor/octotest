@@ -1,1 +1,11 @@
-@import './variables.scss';
+@import './helpers/variables';
+@import './helpers/mixins';
+@import './helpers/normalize';
+@import './helpers/reset';
+@import './helpers/fonts';
+
+@import './blocks/scaffolding';
+@import './blocks/container';
+@import './blocks/titles';
+@import './blocks/text';
+@import './blocks/buttons';
