@@ -33,7 +33,7 @@ module.exports = (env = {}) => {
 
     if (isProd) {
       plugins.push(
-        // new BundleAnalyzerPlugin(),
+        new BundleAnalyzerPlugin(),
         new MiniCssExtractPlugin({
           filename: 'main-[hash:8].css',
         })
@@ -83,7 +83,7 @@ module.exports = (env = {}) => {
               loader: 'sass-resources-loader',
               options: {
                 // Provide path to the file with resources
-                resources: './src/assets/styles/style.scss',
+                resources: './src/assets/styles/constants.scss',
               },
             },
           ],
@@ -97,7 +97,7 @@ module.exports = (env = {}) => {
 
         // Loading Images
         {
-          test: /\.(png|jpg|jpeg|gif)$/,
+          test: /\.(png|jpg|jpeg|svg|gif)$/,
           use: [
             {
               loader: 'file-loader',

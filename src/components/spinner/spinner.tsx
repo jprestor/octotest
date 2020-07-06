@@ -1,8 +1,12 @@
 import React from 'react';
-import './spinner.css';
+import './spinner.scss';
 
 const Spinner: React.FC = () => {
-  return <div>loading...</div>;
+  return (
+    <div className="container">
+      <p className="spinner">loading...</p>
+    </div>
+  );
 };
 
 export { Spinner };

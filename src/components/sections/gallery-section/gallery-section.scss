@@ -1,0 +1,25 @@
+.gallery-section {
+  padding: 0 0 168px;
+
+  .main-col {
+    margin-bottom: 20px;
+  }
+}
+
+.gallery-section__copy-field {
+  width: 1057px;
+
+  @include tablet {
+    width: 100%;
+
+    textarea {
+      height: 76px;
+    }
+  }
+
+  @include mob {
+    textarea {
+      height: 162px;
+    }
+  }
+}

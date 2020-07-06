@@ -1,2 +1,13 @@
-.first-static {
+.second-static {
+  padding-bottom: 30px;
+}
+
+.second-static__mob-aside {
+  display: none;
+
+  @include tablet {
+    display: block;
+    margin: 25px 0 20px;
+    color: $color5;
+  }
 }

@@ -11,6 +11,12 @@ const SecondStatic: React.FC<any> = ({ title, content }) => {
       <h2 className="title">{title}</h2>
 
       <MainCol content={content} />
+
+      <p className="second-static__mob-aside">
+        Рекламный макет, согласно Ф.Котлеру, развивает связанный процесс
+        стратегического планирования. Воздействие на потребителя, пренебрегая
+        деталями, настроено позитивно. Медийная связь тормозит BTL.
+      </p>
     </section>
   );
 };

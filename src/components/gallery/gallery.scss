@@ -6,40 +6,86 @@ img {
 .gallery {
   display: flex;
   justify-content: space-between;
+
+  @include mob {
+    flex-wrap: wrap;
+  }
 }
 
 .gallery__item {
   cursor: pointer;
 
-  &:nth-child(n + 7) {
-    display: none;
+  img {
+    border-radius: 8px;
+  }
+
+  @include tablet {
+    width: 148px;
+  }
+
+  @include mob {
+    margin-bottom: 15px;
+    width: 48%;
   }
 }
 
 .gallery--second {
+  margin: 0 0 32px;
+
   .gallery__item {
     position: relative;
 
     &::before {
-      display: none;
       content: 'Eще 3 фото';
       position: absolute;
-      left: 0;
-      right: 0;
       top: 0;
+      right: 0;
       bottom: 0;
-      color: #fff;
-      justify-content: center;
+      left: 0;
+      display: none;
       align-items: center;
+      justify-content: center;
+      border-radius: 8px;
       background: linear-gradient(
         0deg,
         rgba(51, 51, 51, 0.5),
         rgba(51, 51, 51, 0.5)
       );
+      color: #fff;
     }
   }
 
   .gallery__item:nth-child(6)::before {
     display: flex;
+  }
+
+  .gallery__item:nth-child(n + 7) {
+    display: none;
+  }
+
+  @include tablet {
+    margin: 0 0 20px;
+
+    .gallery__item:nth-child(4)::before {
+      content: 'Eще 5 фото';
+      display: flex;
+    }
+
+    .gallery__item:nth-child(n + 5) {
+      display: none;
+    }
+  }
+
+  @include mob {
+    margin: 0 0 5px;
+
+    .gallery__item:nth-child(2)::before {
+      content: 'Eще 7 фото';
+      display: flex;
+    }
+
+    .gallery__item:nth-child(n + 3) {
+      display: none;
+    }
   }
 }

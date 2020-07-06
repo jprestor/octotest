@@ -1,0 +1,39 @@
+.row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+
+  > * {
+    flex: none;
+  }
+
+  @include tablet {
+    display: block;
+  }
+}
+
+// .row__main {
+//   max-width: 983px;
+// }
+
+.row__aside {
+  margin-top: -2px;
+  width: 315px;
+  color: $color5;
+  font-size: 18px;
+
+  &--sticky {
+    position: sticky;
+    top: 20px;
+    padding-bottom: 40px;
+  }
+
+  @include tablet {
+    margin: 0 0 22px;
+    width: 100%;
+
+    &--sticky {
+      display: none;
+    }
+  }
+}

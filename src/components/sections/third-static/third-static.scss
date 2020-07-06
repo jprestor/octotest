@@ -1,0 +1,14 @@
+.third-static {
+  padding: 0 0 93px;
+
+  @include tablet {
+    padding: 0 0 63px;
+  }
+  @include mob {
+    padding: 0 0 42px;
+  }
+}
+
+.third-static__table {
+  margin: 30px 0 0;
+}

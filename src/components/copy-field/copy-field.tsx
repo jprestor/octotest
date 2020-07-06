@@ -1,24 +1,35 @@
 import React, { useState } from 'react';
 
-export const CopyField: React.FC = () => {
-  const [copySuccess, setCopySuccess] = useState('');
+import './copy-field.scss';
+
+export const CopyField: React.FC<any> = ({ value, className }) => {
+  const [copySuccess, setCopySuccess] = useState(false);
 
   const copyToClipboard = (e: React.MouseEvent) => {
     (e.target as HTMLInputElement).select();
     document.execCommand('copy');
-    setCopySuccess('Скопировано!');
+    setCopySuccess(true);
+
+    setTimeout(() => {
+      setCopySuccess(false);
+    }, 3000);
   };
 
   return (
-    <div className="copy-field">
-      <input
+    <div className={`copy-field ${className ? className : ''}`}>
+      <textarea
         className="copy-field__input"
-        type="text"
         onClick={copyToClipboard}
-        defaultValue="https://test.octweb.ru/api/pages/index/"
+        defaultValue={value}
         readOnly
-      />
-      <div className="copy-field__message">{copySuccess}</div>
+      ></textarea>
+      <div
+        className={`copy-field__message ${
+          copySuccess ? 'copy-field__message--visible' : ''
+        }`}
+      >
+        Скопировано!
+      </div>
     </div>
   );
 };

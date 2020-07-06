@@ -1,2 +1,11 @@
 .first-static {
+  padding-bottom: 40px;
+}
+
+.first-static__main-col {
+  margin-bottom: 40px;
+
+  @include tablet {
+    margin-bottom: 25px;
+  }
 }

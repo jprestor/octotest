@@ -1,2 +1,45 @@
 .intro-section {
+  padding: 46px 0 58px;
+  font-size: 20px;
+
+  @include tablet {
+    padding: 46px 0 40px;
+  }
+}
+
+.intro-section__copy {
+  display: flex;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  padding-top: 18px;
+}
+
+.intro-section__copy-caption {
+  margin-bottom: 17px;
+  width: 100%;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 140%;
+}
+
+.intro-section__copy-field {
+  width: 622px;
+
+  @include tablet {
+    width: 100%;
+  }
+}
+
+.intro-section__copy-notice {
+  margin: 0 0 0 48px;
+  width: 650px;
+  font-size: 16px;
+  line-height: 150%;
+
+  @include tablet {
+    margin: 0;
+    width: 100%;
+  }
 }

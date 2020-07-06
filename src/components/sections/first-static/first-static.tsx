@@ -9,10 +9,12 @@ import './first-static.scss';
 const FirstStatic: React.FC<any> = ({ title, content }) => {
   return (
     <section className="first-static">
-      <h2 className="title">{title}</h2>
+      <div className="container">
+        <h2 className="title">{title}</h2>
 
-      <MainCol content={content} />
-      <FirstGallery />
+        <MainCol content={content} className="first-static__main-col" />
+        <FirstGallery />
+      </div>
     </section>
   );
 };

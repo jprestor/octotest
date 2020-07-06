@@ -1,0 +1,33 @@
+.copy-field__input {
+  position: relative;
+  padding: 8px 54px 0 17px;
+  width: 100%;
+  height: 44px;
+  border: none;
+  border-radius: 8px;
+  background: url(../../assets/images/copy.svg) 98% center no-repeat;
+  background-color: $color6;
+  font-weight: bold;
+  resize: none;
+  text-decoration-line: underline;
+
+  @include mob {
+    padding-top: 11px;
+    height: 77px;
+  }
+}
+
+.copy-field__message {
+  margin-top: -5px;
+  color: $color5;
+  opacity: 0;
+  transition: 0.5s;
+
+  &--visible {
+    opacity: 1;
+  }
+
+  @include tablet {
+    font-size: 14px;
+  }
+}

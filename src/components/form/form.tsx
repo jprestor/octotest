@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, Fragment } from 'react';
 
 import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
@@ -9,75 +9,78 @@ import { FormTextarea } from './form-textarea';
 
 import './form.scss';
 
-// And now we can use these
-const SignupForm = () => {
+const SignupForm: React.FC<any> = ({ className }) => {
   const [isFormSubmitted, setFormSubmitted] = useState(false);
 
   return (
-    <>
-      <h1>Subscribe!</h1>
-      <Formik
-        initialValues={{
-          name: '',
-          phone: '',
-          email: '',
-          message: '',
-          checkbox: false, // added for our checkbox
-        }}
-        validationSchema={Yup.object({
-          phone: Yup.string().required('Это обязательное поле'),
-          email: Yup.string()
-            .email('Invalid email address')
-            .required('Это обязательное поле'),
-          message: Yup.string().required('Это обязательное поле'),
-          checkbox: Yup.boolean()
-            .required('Это обязательное поле')
-            .oneOf([true], 'Вы должны принять условия'),
-        })}
-        onSubmit={(values, { setSubmitting, resetForm }) => {
-          setFormSubmitted(true);
+    <Formik
+      initialValues={{
+        name: '',
+        phone: '',
+        email: '',
+        message: '',
+        checkbox: false,
+      }}
+      validationSchema={Yup.object({
+        phone: Yup.string().required('Это обязательное поле'),
+        email: Yup.string()
+          .email('Invalid email address')
+          .required('Это обязательное поле'),
+        message: Yup.string().required('Это обязательное поле'),
+        checkbox: Yup.boolean()
+          .required('Это обязательное поле')
+          .oneOf([true], 'Вы должны принять условия'),
+      })}
+      onSubmit={(values, { setSubmitting, resetForm }) => {
+        setFormSubmitted(true);
 
-          setTimeout(() => {
-            console.log('submit', JSON.stringify(values, null, 2));
-            setSubmitting(false);
-            resetForm();
-          }, 400);
-        }}
-      >
-        {({ isSubmitting, isValid, touched }) => (
-          <Form>
-            <FormInput
-              label="Имя нас не сильно волнует и это поле необязательное"
-              name="name"
-              type="text"
-              placeholder="Ваше имя"
-            />
-            <FormInput
-              label="Для телефона нужна маска для ввода"
-              name="phone"
-              type="tel"
-              placeholder="Телефон"
-            />
-            <FormInput
-              label="Почту нужно валидировать, что пользователь точно указал адекватный и похожий на настоящий адрес"
-              name="email"
-              type="email"
-              placeholder="Электронная почта"
-            />
-            <FormTextarea
-              label="Без сообщения форму отправлять бессмысленно"
-              name="message"
-              placeholder="Сообщение"
-            />
-            <FormCheckbox name="checkbox">
-              Согласен с правилами обработки моих персональных данных
-            </FormCheckbox>
+        setTimeout(() => {
+          console.log('submit', JSON.stringify(values, null, 2));
+          setSubmitting(false);
+          resetForm();
+        }, 400);
+      }}
+    >
+      {({ isSubmitting, isValid, touched }) => (
+        <Form className={`form ${className ? className : ''}`}>
+          <FormInput
+            label="Имя нас не сильно волнует и это поле необязательное"
+            id="name"
+            name="name"
+            type="text"
+            placeholder="Ваше имя"
+          />
+          <FormInput
+            label="Для телефона нужна маска для ввода"
+            id="phone"
+            name="phone"
+            type="tel"
+            placeholder="Телефон"
+            required
+          />
+          <FormInput
+            label="Почту нужно валидировать, что пользователь точно указал адекватный и похожий на настоящий адрес"
+            id="email"
+            name="email"
+            type="email"
+            placeholder="Электронная почта"
+          />
+          <FormTextarea
+            label="Без сообщения форму отправлять бессмысленно"
+            id="message"
+            name="message"
+            placeholder="Сообщение"
+          />
+          <FormCheckbox name="checkbox">
+            Согласен с правилами обработки моих персональных данных
+          </FormCheckbox>
 
+          <div className="form__field">
             <button
               className={
                 isSubmitting
-                  ? 'form__submit-btn form__submit-btn--submitting'
-                  : 'form__submit-btn'
+                  ? 'form__submit-btn form__submit-btn--submitting btn'
+                  : 'form__submit-btn btn'
               }
               type="submit"
               disabled={
@@ -89,16 +92,21 @@ const SignupForm = () => {
               Отправить сообщение
             </button>
 
-            {isFormSubmitted && (
-              <div className="form__thank-you-msg">
-                Письмо для активации аккаунта успешно отправлено на адрес
-                электронной почты, который вы указали при регистрации.
-              </div>
-            )}
-          </Form>
-        )}
-      </Formik>
-    </>
+            <label className="form__label">
+              У кнопки несколько состояний. Яркой и синей она становится когда
+              все нормально и форму можно отправлять.
+            </label>
+          </div>
+
+          {isFormSubmitted && (
+            <div className="form__thank-you-msg">
+              Письмо для активации аккаунта успешно отправлено на адрес
+              электронной почты, который вы указали при регистрации.
+            </div>
+          )}
+        </Form>
+      )}
+    </Formik>
   );
 };
 

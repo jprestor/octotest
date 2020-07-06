@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import { withGallery } from '../../hoc';
 
 const FirstGallery: React.FC<any> = ({ galleryItems }) => {
-  return <div className="gallery  gallery--second">{galleryItems}</div>;
+  return <div className="gallery">{galleryItems}</div>;
 };
 
 const mapStateToProps = (state: any) => {

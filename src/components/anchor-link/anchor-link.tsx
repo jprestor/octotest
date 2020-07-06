@@ -5,19 +5,28 @@ import { Link, animateScroll as scroll } from 'react-scroll';
 interface Props {
   target: string;
   children: string;
+  className?: string;
+  offset?: number;
 }
 
-export const NavLink: React.FC<Props> = ({ target, children }) => {
+const AnchorLink: React.FC<Props> = ({
+  target,
+  offset = -20,
+  children,
+  className,
+}) => {
   return (
     <Link
-      className="nav-link"
+      className={className ? className : ''}
       to={target}
       spy={true}
       smooth={true}
-      offset={-20}
+      offset={offset}
       duration={500}
     >
       {children}
     </Link>
   );
 };
+
+export { AnchorLink };

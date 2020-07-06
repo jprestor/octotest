@@ -1,25 +1,33 @@
 import React, { useRef } from 'react';
 
-import { NavLink } from '../nav-link';
+import { AnchorLink } from '../anchor-link';
 
+import '../../assets/styles/style.scss';
 import './page-header.scss';
+import brandLogo from '../../assets/images/brand.svg';
 
 const PageHeader: React.FC = () => {
   return (
     <header className="page-header">
       <div className="container">
-        <ul className="nav">
-          <li className="nav-item">
-            <img src="" alt="" />
+        <ul className="page-header__nav">
+          <li className="page-header__nav-item  page-header__nav-item--brand">
+            <img className="page-header__nav-brand" src={brandLogo} alt="" />
           </li>
-          <li className="nav-item">
-            <NavLink target="textBlock1">Текстовые блоки</NavLink>
+          <li className="page-header__nav-item">
+            <AnchorLink className="link" target="first-static">
+              Текстовые блоки
+            </AnchorLink>
           </li>
-          <li className="nav-item">
-            <NavLink target="textBlock1">Галерея</NavLink>
+          <li className="page-header__nav-item">
+            <AnchorLink className="link" target="gallery-section">
+              Галерея
+            </AnchorLink>
           </li>
-          <li className="nav-item">
-            <NavLink target="textBlock1">👋 Форма с приветами</NavLink>
+          <li className="page-header__nav-item">
+            <AnchorLink className="link" target="form-section">
+              Форма с приветами
+            </AnchorLink>
           </li>
         </ul>
       </div>

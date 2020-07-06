@@ -1,0 +1,43 @@
+.table table {
+  width: 980px;
+  border-collapse: collapse;
+  border-bottom: 3px solid $color3;
+
+  @include tablet {
+    margin-bottom: 34px;
+  }
+}
+
+table thead th {
+  padding-bottom: 12px;
+  border-bottom: 3px solid $color3;
+  font-weight: bold;
+
+  &:nth-child(1) {
+    width: 204px;
+  }
+  &:nth-child(2) {
+    width: 560px;
+  }
+}
+
+table tbody td {
+  padding: 19px 20px 20px 0;
+  border-bottom: 3px solid $color9;
+  vertical-align: top;
+}
+
+.track-horizontal {
+  display: none;
+  height: 3px;
+  background-color: $color9;
+
+  @include tablet {
+    display: block;
+  }
+}
+
+.thumb-horizontal {
+  height: 3px;
+  background-color: $color3;
+}
